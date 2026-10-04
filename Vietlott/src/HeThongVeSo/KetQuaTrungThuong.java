@@ -11,15 +11,51 @@ public class KetQuaTrungThuong {
     private long soTienDuKien;
     private TrangThaiTrungThuong trangThai;
 
+    public KetQuaTrungThuong(String maKetQuaTrungThuong, VeSo veSo, KyQuay kyQuay, GiaiThuong giaiThuong,
+			int soLuongSoTrung, long soTienDuKien, TrangThaiTrungThuong trangThai) {
+		super();
+		this.maKetQuaTrungThuong = maKetQuaTrungThuong;
+		this.veSo = veSo;
+		this.kyQuay = kyQuay;
+		this.giaiThuong = giaiThuong;
+		this.soLuongSoTrung = soLuongSoTrung;
+		this.soTienDuKien = soTienDuKien;
+		this.trangThai = trangThai;
+	}
     public boolean xacNhanTrungThuong() {
-        return false;
+        if (veSo == null || kyQuay == null) {
+            return false;
+        }
+
+        if (giaiThuong == null) {
+            trangThai = TrangThaiTrungThuong.KHONG_TRUNG_THUONG;
+            soTienDuKien = 0;
+            return true;
+        }
+
+        if (soLuongSoTrung == giaiThuong.getSoLuongSoTrung()) {
+            trangThai = TrangThaiTrungThuong.TRUNG_THUONG;
+            tinhSoTienDuKien();
+        } else {
+            trangThai = TrangThaiTrungThuong.KHONG_TRUNG_THUONG;
+            soTienDuKien = 0;
+        }
+
+        return true;
     }
 
     public long tinhSoTienDuKien() {
-        return 0;
+        if (trangThai != TrangThaiTrungThuong.TRUNG_THUONG
+                || giaiThuong == null) {
+            soTienDuKien = 0;
+            return 0;
+        }
+
+        soTienDuKien = giaiThuong.getSoTienThuong();
+        return soTienDuKien;
     }
 
     public boolean coTheNhanThuong() {
-        return false;
+        return trangThai == TrangThaiTrungThuong.TRUNG_THUONG;
     }
 }

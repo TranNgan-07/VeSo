@@ -15,10 +15,20 @@ public class QuyJackPot {
 		this.thoiGianCapNhat = thoiGianCapNhat;
 	}
 	public void congTien(long soTien) {
-		soTienHienTai += soTien;
+		if (soTien > 0) {
+			soTienHienTai += soTien;
+			thoiGianCapNhat = LocalDateTime.now();
+		}
 	}
-	public void truTien(long soTien) {
-		
+	public boolean truTien(long soTien) {
+		if (soTien <= 0 || soTien > soTienHienTai) {
+			return false;
+		}
+
+		soTienHienTai -= soTien;
+		thoiGianCapNhat = LocalDateTime.now();
+
+		return true;
 	}
 	public long laySoTienHienTai() {
 		return soTienHienTai;

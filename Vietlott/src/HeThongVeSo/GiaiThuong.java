@@ -11,6 +11,16 @@ public class GiaiThuong {
 		this.tenGiaiThuong = tenGiaiThuong;
 		this.soLuongSoTrung = soLuongSoTrung;
 		this.soTienThuong = soTienThuong;
+		
 	}
-	
+	public String getMaGiaiThuong() {
+		return maGiaiThuong;
+	}
+	public int getSoLuongSoTrung() {
+	    return soLuongSoTrung;
+	}
+
+	public long getSoTienThuong() {
+	    return soTienThuong;
+	}
 }

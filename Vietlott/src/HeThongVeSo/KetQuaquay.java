@@ -11,7 +11,11 @@ public class KetQuaquay {
 		this.boSoTrungThuong = boSoTrungThuong;
 	}
 	public boolean kiemTraBoSoHopLe() {
-		return false;
+		if (kyQuay == null || boSoTrungThuong == null) {
+			return false;
+		}
+
+		return kyQuay.getSanPham().kiemTraBoSoHopLe(boSoTrungThuong);
 		
 	}
 }
