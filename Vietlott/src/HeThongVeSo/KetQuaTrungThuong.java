@@ -3,6 +3,7 @@ package HeThongVeSo;
 import TrangThai.TrangThaiTrungThuong;
 
 public class KetQuaTrungThuong {
+
     private String maKetQuaTrungThuong;
     private VeSo veSo;
     private KyQuay kyQuay;
@@ -11,18 +12,24 @@ public class KetQuaTrungThuong {
     private long soTienDuKien;
     private TrangThaiTrungThuong trangThai;
 
-    public KetQuaTrungThuong(String maKetQuaTrungThuong, VeSo veSo, KyQuay kyQuay, GiaiThuong giaiThuong,
-			int soLuongSoTrung, long soTienDuKien, TrangThaiTrungThuong trangThai) {
-		super();
-		this.maKetQuaTrungThuong = maKetQuaTrungThuong;
-		this.veSo = veSo;
-		this.kyQuay = kyQuay;
-		this.giaiThuong = giaiThuong;
-		this.soLuongSoTrung = soLuongSoTrung;
-		this.soTienDuKien = soTienDuKien;
-		this.trangThai = trangThai;
-	}
+    public KetQuaTrungThuong(String maKetQuaTrungThuong,
+                             VeSo veSo,
+                             KyQuay kyQuay,
+                             GiaiThuong giaiThuong,
+                             int soLuongSoTrung,
+                             long soTienDuKien,
+                             TrangThaiTrungThuong trangThai) {
+        this.maKetQuaTrungThuong = maKetQuaTrungThuong;
+        this.veSo = veSo;
+        this.kyQuay = kyQuay;
+        this.giaiThuong = giaiThuong;
+        this.soLuongSoTrung = soLuongSoTrung;
+        this.soTienDuKien = soTienDuKien;
+        this.trangThai = trangThai;
+    }
+
     public boolean xacNhanTrungThuong() {
+
         if (veSo == null || kyQuay == null) {
             return false;
         }
@@ -57,5 +64,9 @@ public class KetQuaTrungThuong {
 
     public boolean coTheNhanThuong() {
         return trangThai == TrangThaiTrungThuong.TRUNG_THUONG;
+    }
+
+    public TrangThaiTrungThuong getTrangThai() {
+        return trangThai;
     }
 }
