@@ -11,9 +11,9 @@ import TrangThai.TrangThaiVe;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("       TEST HE THONG VE SO");
+        System.out.println("TEST HE THONG VE SO");
         // 1. TẠO ĐẠI LÝ
-        System.out.println("\n--- 1. TEST DAI LY ---");
+        System.out.println("\ntest đại lý");
         DaiLy daiLy = new DaiLy("DL01","Dai ly Sai Gon","TP. Ho Chi Minh", "0901234567",TrangThaiDaiLy.DANG_HOAT_DONG);
         
         System.out.println("Trang thai dai ly: " + daiLy.getTrangThai());
@@ -23,7 +23,7 @@ public class Main {
         System.out.println("Trang thai: " + daiLy.getTrangThai());
 
         // 2. TẠO ĐIỂM BÁN
-        System.out.println("\n--- 2. TEST DIEM BAN ---");
+        System.out.println("\ntest điểm bán");
         DiemBan diemBan = new DiemBan("DB01","Diem ban Ben Thanh","Quan 1, TP.HCM","0912345678",daiLy,TrangThaiDiemBan.DANG_HOAT_DONG);
 
         System.out.println("Co the ban ve: " + diemBan.coTheBanVe());
@@ -33,14 +33,14 @@ public class Main {
         System.out.println("Co the ban ve: " + diemBan.coTheBanVe());
 
         // 3. TẠO SẢN PHẨM
-        System.out.println("\n--- 3. TEST SAN PHAM ---");
+        System.out.println("\ntest sản phẩm");
         SanPham sanPham = new SanPham("SP01","Ve so 6/45",10000,6,1,45,TrangThaiSanPham.DANG_HOAT_DONG);
 
         int[] boSo = {5, 12, 18, 23, 31, 40};
         System.out.println("Bo so hop le: " + sanPham.kiemTraBoSoHopLe(boSo));
 
-        // 4. TẠO KỲ QUAY
-        System.out.println("\n--- 4. TEST KY QUAY ---");
+        // 4. tạo kỳ quay
+        System.out.println("\ntest kì quay");
         LocalDateTime moBan = LocalDateTime.now().minusHours(2);
         LocalDateTime dongBan = LocalDateTime.now().plusHours(1);
         LocalDateTime thoiGianQuay = LocalDateTime.now().plusHours(2);
@@ -51,8 +51,8 @@ public class Main {
         System.out.println("Dong ban: " + kyQuay.dongBan());
         System.out.println("Trang thai ky quay: " + kyQuay.getTrangThai());
 
-        // 5. TẠO VÉ SỐ
-        System.out.println("\n--- 5. TEST VE SO ---");
+        // tạo vé số
+        System.out.println("\ntest vé số");
         // Để kiểm tra vé hợp lệ trong khoảng mở/đóng bán
         LocalDateTime thoiGianMua = LocalDateTime.now().minusMinutes(30);
 
@@ -63,7 +63,7 @@ public class Main {
         System.out.println("Co the tham gia quay: " + veSo.coTheThamGiaQuay());
 
         // 6. GIAO DỊCH
-        System.out.println("\n--- 6. TEST GIAO DICH ---");
+        System.out.println("\ntest giao dịch");
         GiaoDich giaoDich = new GiaoDich("GD01", diemBan);
         
         ChiTietGiaoDich chiTiet = new ChiTietGiaoDich("CT01",veSo,10000);
@@ -74,7 +74,7 @@ public class Main {
         System.out.println("Trang thai giao dich: " + giaoDich.getTrangThai());
 
         // 7. GIẢI THƯỞNG
-        System.out.println("\n--- 7. TEST GIAI THUONG ---");
+        System.out.println("\ntest giải thưởng");
         GiaiThuong giaiThuong = new GiaiThuong("GT01","Giai nhat",6,100000000);
 
         KetQuaTrungThuong ketQua = new KetQuaTrungThuong("KQTT01",veSo,kyQuay,giaiThuong,6,0,TrangThaiTrungThuong.KHONG_TRUNG_THUONG);
@@ -84,7 +84,7 @@ public class Main {
         System.out.println("So tien du kien: " + ketQua.tinhSoTienDuKien());
 
         // 8. YÊU CẦU NHẬN THƯỞNG
-        System.out.println("\n--- 8. TEST YEU CAU NHAN THUONG ---");
+        System.out.println("\ntest yêu cầu nhận thưởng");
         YeuCauNhanThuong yeuCau = new YeuCauNhanThuong("YC01",ketQua);
 
         System.out.println("Tao yeu cau: " + yeuCau.taoYeuCau());
@@ -92,7 +92,7 @@ public class Main {
         System.out.println("So tien yeu cau: " + yeuCau.getSoTienYeuCau());
 
         // 9. HỒ SƠ NHẬN THƯỞNG
-        System.out.println("\n--- 9. TEST HO SO NHAN THUONG ---");
+        System.out.println("\ntest hồ sơ nhận thưởng");
         HoSoNhanThuong hoSo = new HoSoNhanThuong( "HS01", yeuCau, "Nguyen Van A","079123456789", "CCCD");
 
         System.out.println("Kiem tra thong tin: " + hoSo.kiemTraThongTin());
@@ -101,14 +101,14 @@ public class Main {
         System.out.println("Trang thai yeu cau sau xac minh: " + yeuCau.getTrangThai());
 
         // 10. DUYỆT YÊU CẦU
-        System.out.println("\n--- 10. DUYET YEU CAU ---");
+        System.out.println("\nduyệt yêu cầu");
         System.out.println("Duyet yeu cau: "
                 + yeuCau.duyetYeuCau());
         System.out.println("Trang thai yeu cau: "
                 + yeuCau.getTrangThai());
 
         // 11. THANH TOÁN
-        System.out.println("\n--- 11. TEST THANH TOAN ---");
+        System.out.println("\ntest thanh toán");
         ThanhToanThuong thanhToan = new ThanhToanThuong("TT01",yeuCau,"Tien mat");
 
         System.out.println("Thuc hien thanh toan: " + thanhToan.thucHienThanhToan());
